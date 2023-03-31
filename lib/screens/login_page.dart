@@ -1,8 +1,10 @@
+import 'package:authentication_pracitce/screens/signup.dart';
 import 'package:authentication_pracitce/utils/app_utils.dart';
 import 'package:authentication_pracitce/utils/extensions.dart';
 import 'package:authentication_pracitce/widget/auth_divider_line.dart';
 import 'package:authentication_pracitce/widget/auth_text_field.dart';
 import 'package:authentication_pracitce/widget/checked_box.dart';
+import 'package:get/get.dart';
 import 'package:flutter/material.dart';
 
 class LoginPageScreen extends StatefulWidget {
@@ -94,22 +96,24 @@ class _LoginPageScreenState extends State<LoginPageScreen> {
             ),
             const Spacer(),
             Center(
-              child: RichText(text: TextSpan(
-                text: "Don't have an account?",
-                style: kMontserratRegular.copyWith(
-                  fontSize: 10.0.sp,
-                  color: checkBoxColor,
-                ),
+              child: Wrap(
                 children: [
-                  TextSpan(
-                    text: " Signup",
-                    style: kMontserratRegular.copyWith(
+                  Text("Don't have an account? ",style: kMontserratRegular.copyWith(
+                    fontSize: 10.0.sp,
+                    color: checkBoxColor,
+                  ),
+                  ),
+                  GestureDetector(
+                    onTap: (){
+                      Get.to(()=> const SignUpScreen());
+                    },
+                    child: Text("Signup",style: kMontserratRegular.copyWith(
                       fontSize: 10.0.sp,
                       color: Colors.indigoAccent,
-                    ),
-                  )
-                ]
-              ),),
+                    ),),
+                  ),
+                ],
+              ),
             ),
             SizedBox(height: 2.0.hp,)
           ],

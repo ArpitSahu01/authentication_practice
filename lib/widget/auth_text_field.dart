@@ -5,11 +5,11 @@ import 'package:flutter/material.dart';
 class AuthTextField extends StatefulWidget {
 
   String title;
-  IconData icon;
+  IconData? icon;
   String hintText;
-  bool hideText = false;
+  bool hideText ;
 
-  AuthTextField({Key? key,required this.title,required this.icon,required this.hideText,required this.hintText}) : super(key: key);
+  AuthTextField({Key? key, required this.title, this.icon, this.hideText = false,required this.hintText}) : super(key: key);
 
   @override
   State<AuthTextField> createState() => _AuthTextFieldState();
@@ -29,10 +29,10 @@ class _AuthTextFieldState extends State<AuthTextField> {
         TextFormField(
           obscureText: widget.hideText ? _obsureText : false,
           decoration: InputDecoration(
-            prefixIcon: Icon(widget.icon),
+            prefixIcon: widget.icon == null ? null: Icon(widget.icon),
             hintText: widget.hintText,
             border: const OutlineInputBorder(),
-            suffixIcon: widget.hideText ? widget.hideText ?IconButton(onPressed: (){
+            suffixIcon: widget.hideText ? _obsureText ?IconButton(onPressed: (){
               setState(() {
                 _obsureText = false;
               });
@@ -40,9 +40,9 @@ class _AuthTextFieldState extends State<AuthTextField> {
               setState(() {
                 _obsureText = true;
               });
-            }, icon: const Icon(Icons.visibility_outlined)): null,
+            }, icon: const Icon(Icons.visibility_outlined)) : null,
           ),
-        )
+        ),
       ],
     );
   }
