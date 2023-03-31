@@ -2,11 +2,7 @@ import 'package:authentication_pracitce/screens/login_page.dart';
 import 'package:authentication_pracitce/utils/extensions.dart';
 import 'package:get/get.dart';
 import 'package:flutter/material.dart';
-
 import '../utils/app_utils.dart';
-import '../widget/auth_divider_line.dart';
-import '../widget/auth_text_field.dart';
-import '../widget/checked_box.dart';
 
 class SignUpScreen extends StatefulWidget {
   const SignUpScreen({Key? key}) : super(key: key);
@@ -16,6 +12,8 @@ class SignUpScreen extends StatefulWidget {
 }
 
 class _SignUpScreenState extends State<SignUpScreen> {
+
+  bool _obsureText = true;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -31,13 +29,81 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 fontSize: 24.0.sp,
               ),),
               SizedBox(height: 5.0.hp,),
-              AuthTextField(title: "First Name",hintText: "Your First Name",hideText: false,),
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text("First Name",style: kMontserratMedium.copyWith(
+                      fontSize: 12.0.sp
+                  ),),
+                  SizedBox(height: 10,),
+                  TextFormField(
+                    decoration: InputDecoration(
+                      hintText: "Your First Name",
+                      border: const OutlineInputBorder(),
+                    ),
+                  ),
+                ],
+              ),
               SizedBox(height: 2.0.hp,),
-              AuthTextField(title: "Last Name",hintText: "Your Last Name",hideText: false,),
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text("Last Name",style: kMontserratMedium.copyWith(
+                      fontSize: 12.0.sp
+                  ),),
+                  SizedBox(height: 10,),
+                  TextFormField(
+                    decoration: InputDecoration(
+                      hintText: "Your Last Name",
+                      border: const OutlineInputBorder(),
+                    ),
+                  ),
+                ],
+              ),
               SizedBox(height: 2.0.hp,),
-              AuthTextField(title: "E-mail",hintText: "Your Email",icon: Icons.mail,hideText: false,),
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text("E-mail",style: kMontserratMedium.copyWith(
+                      fontSize: 12.0.sp
+                  ),),
+                  const SizedBox(height: 10,),
+                  TextFormField(
+                    decoration: const InputDecoration(
+                      prefixIcon: Icon(Icons.mail),
+                      hintText: "Your Email",
+                      border:  OutlineInputBorder(),
+                    ),
+                  ),
+                ],
+              ),
               SizedBox(height: 2.0.hp,),
-              AuthTextField(title: "Password",hintText: "Your Password", icon: Icons.lock, hideText: true),
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text("Password",style: kMontserratMedium.copyWith(
+                      fontSize: 12.0.sp
+                  ),),
+                  SizedBox(height: 10,),
+                  TextFormField(
+                    obscureText:  _obsureText,
+                    decoration: InputDecoration(
+                      prefixIcon: Icon(Icons.lock),
+                      hintText: "Your Password",
+                      border: const OutlineInputBorder(),
+                      suffixIcon: _obsureText ? IconButton(onPressed: (){
+                        setState(() {
+                          _obsureText = false;
+                        });
+                      }, icon: const Icon(Icons.visibility_off_outlined)):IconButton(onPressed: (){
+                        setState(() {
+                          _obsureText = true;
+                        });
+                      }, icon: const Icon(Icons.visibility_outlined)),
+                    ),
+                  ),
+                ],
+              ),
               SizedBox(height: 2.0.hp,),
               Wrap(
                 children: [
