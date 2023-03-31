@@ -1,3 +1,4 @@
+import 'package:authentication_pracitce/screens/home_screen.dart';
 import 'package:authentication_pracitce/screens/login_page.dart';
 import 'package:get/get.dart';
 import 'package:authentication_pracitce/screens/signup.dart';
@@ -17,7 +18,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue
       ),
-      home: const SignUpScreen(),
+      home: const HomeScreen(),
 
     );
   }
