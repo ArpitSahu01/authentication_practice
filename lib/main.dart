@@ -1,5 +1,6 @@
 import 'package:authentication_pracitce/screens/home_screen.dart';
 import 'package:authentication_pracitce/screens/login_page.dart';
+import 'package:authentication_pracitce/screens/password_recovery_page.dart';
 import 'package:get/get.dart';
 import 'package:authentication_pracitce/screens/signup.dart';
 import 'package:flutter/material.dart';
