@@ -1,3 +1,4 @@
+import 'package:authentication_pracitce/controllers/auth_controller.dart';
 import 'package:authentication_pracitce/screens/password_recovery_page.dart';
 import 'package:authentication_pracitce/screens/signup.dart';
 import 'package:authentication_pracitce/utils/app_utils.dart';
@@ -119,8 +120,7 @@ class _LoginPageScreenState extends State<LoginPageScreen> {
                     if(_formKey.currentState!.validate()){
                       String email = _emailController.text.trim();
                       String password = _passwordController.text.trim();
-                      print(email);
-                      print(password);
+                      AuthController.instance.login(email, password);
                     }
                   },
                     style: ButtonStyle(

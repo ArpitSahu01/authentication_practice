@@ -52,4 +52,29 @@ class AuthController extends GetxController{
     }
   }
 
+  void login(String email,String password) async{
+    try{
+      await auth.signInWithEmailAndPassword(email: email, password: password);
+    }catch (e){
+      Get.snackbar(
+        "About Login",
+        "Login Message",
+        backgroundColor: Colors.redAccent,
+        snackPosition: SnackPosition.BOTTOM,
+        titleText: const Text("Login failed",
+          style: TextStyle(color: Colors.white),
+        ),
+        messageText: Text(
+          e.toString(),
+          style: const TextStyle(
+            color: Colors.white,
+          ),
+        ),
+      );
+    }
+  }
+  void logOut() async{
+      await auth.signOut();
+  }
+
 }
