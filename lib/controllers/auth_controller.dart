@@ -30,9 +30,9 @@ class AuthController extends GetxController{
     }
   }
 
-  void register(String email, String password){
+  void register(String email, String password) async{
     try{
-      auth.createUserWithEmailAndPassword(email: email, password: password);
+      await auth.createUserWithEmailAndPassword(email: email, password: password);
     }catch(e){
       Get.snackbar(
           "About User",
