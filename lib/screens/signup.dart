@@ -1,3 +1,4 @@
+import 'package:authentication_pracitce/controllers/auth_controller.dart';
 import 'package:authentication_pracitce/screens/login_page.dart';
 import 'package:authentication_pracitce/utils/extensions.dart';
 import 'package:get/get.dart';
@@ -173,9 +174,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                       String name = "${_firstNameController.text.trim()} ${_lastNameController.text.trim()}";
                       String email = _emailController.text.trim();
                       String password = _passwordController.text.trim();
-                      print(name);
-                      print(email);
-                      print(password);
+                      AuthController.instance.register(email, password);
                     }
                   },
                     style: ButtonStyle(

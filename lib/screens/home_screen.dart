@@ -1,3 +1,4 @@
+import 'package:authentication_pracitce/controllers/auth_controller.dart';
 import 'package:authentication_pracitce/utils/app_utils.dart';
 import 'package:authentication_pracitce/utils/extensions.dart';
 import 'package:flutter/material.dart';
@@ -11,9 +12,17 @@ class HomeScreen extends StatelessWidget {
       appBar: AppBar(title: const Text("HomeScreen"),centerTitle: true,),
       body: SafeArea(
         child: Center(
-          child: Text("HomeScreen",style: kMontserratRegular.copyWith(
-            fontSize: 24.0.sp,
-          ),),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Text("HomeScreen",style: kMontserratRegular.copyWith(
+                fontSize: 24.0.sp,
+              ),),
+              ElevatedButton(onPressed: (){
+                AuthController.instance.logout();
+              }, child: const Text("Logout")),
+            ],
+          ),
         ),
       ),
     );
