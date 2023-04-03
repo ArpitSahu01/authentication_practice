@@ -171,10 +171,9 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   height: 5.0.hp,
                   child: ElevatedButton(onPressed: (){
                     if(_formKey.currentState!.validate()){
-                      String name = "${_firstNameController.text.trim()} ${_lastNameController.text.trim()}";
                       String email = _emailController.text.trim();
                       String password = _passwordController.text.trim();
-                      AuthController.instance.register(email, password);
+                      AuthController.instance.register(email:email, password: password,firstName:_firstNameController.text.trim(),lastName: _lastNameController.text.trim(),);
                     }
                   },
                     style: ButtonStyle(
