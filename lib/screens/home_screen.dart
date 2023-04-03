@@ -12,13 +12,18 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  String? userName;
+  String userName="";
   @override
   void initState() {
     // Future.delayed(Duration(seconds: 0),(){
     //   userName = AuthController.instance.getUserInformation().toString();
     // });
-    userName = AuthController.instance.getUserInformation().toString();
+    AuthController.instance.getUserInformation().then((value){
+      userName = value.toString();
+      setState(() {
+
+      });
+    });
     super.initState();
   }
 

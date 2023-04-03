@@ -103,11 +103,9 @@ class AuthController extends GetxController{
 
   getUserInformation() async{
     UserModel? userModel;
-    await firebaseFirestore.collection("users").doc(_user.value!.uid).get().then((value) {
-      print(value);
-      userModel = UserModel.fromJson(value);
-      return userModel!.firstName;
-    });
+    final value = await firebaseFirestore.collection("users").doc(_user.value!.uid).get();
+    userModel = UserModel.fromJson(value);
+    return userModel.firstName;
   }
 
 }
