@@ -147,14 +147,19 @@ class _LoginPageScreenState extends State<LoginPageScreen> {
                         ),
                         child: Image.asset("assets/login_icon/facebook.png"),
                       ),
-                      Container(
-                        width: 60,
-                        height: 60,
-                        decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(1.0.wp),
-                            border: Border.all(color: checkBoxColor.withOpacity(0.2))
+                      GestureDetector(
+                        onTap: (){
+                          AuthController.instance.signWithGoogle();
+                        },
+                        child: Container(
+                          width: 60,
+                          height: 60,
+                          decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(1.0.wp),
+                              border: Border.all(color: checkBoxColor.withOpacity(0.2))
+                          ),
+                          child: Image.asset("assets/login_icon/google.png"),
                         ),
-                        child: Image.asset("assets/login_icon/google.png"),
                       ),
                       Container(
                         width: 60,
